@@ -1,7 +1,21 @@
+import * as React from 'react';
+import { BrowserRouter as Router, Switch, Redirect, Route, RouteProps } from 'react-router-dom';
+import { useSelector, useDispatch} from 'react-redux';
+
+// Storn: need to create the components, routesm slices, models, pages below
+// Also, leaving out AlertSnackbar for now
+// import { AppContainer, ThemeProvider } from 'energy-explorer/components'
+// import { routes } from 'energy-explorer/routes';
+// import { slices } from 'energy-explorer/store';
+// import { models } from 'energy-explorer/util';
+// import * as pages from './pages';
+
+// These are the old imports from the default react app
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+// This is the app that shipped with React
+export const OldApp = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -15,11 +29,37 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Hello World<br />
+          You Must Obey Storn
         </a>
       </header>
     </div>
   );
 }
 
+/** ============================ Components ================================ */
+/**
+ * This is separated from the 'App' component so that we can provide a different router inside
+ * tests.  This enables us to test that we transistion from page to page successfully.
+ * Note: Storn copied this without understanding it.
+ */
+export const AppRoutes = () => {
+  return (
+    //<ThemeProvider>
+    <OldApp />
+    //</ThemeProvider>
+  );
+}
+
+
+/**
+ * The applictation's root component, which is not rendered by tests.
+ */
+const App = () => (
+  <Router>
+    <AppRoutes />
+  </Router>
+);
+
+/** ============================ Exports =================================== */
 export default App;

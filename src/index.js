@@ -1,12 +1,17 @@
-import React from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { Provider } from 'react-redux';
+import 'url-search-params-polyfill';
+
 import App from './App';
+import store from './common/store';
+import './index.css';
 
 ReactDOM.render(
-  <React.StrictMode>
+  // Provider surrounds App to make the datastore available
+  // throughout the application.
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
-
