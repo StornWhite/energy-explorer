@@ -11,5 +11,5 @@ import { Card } from 'energy-explorer/components';
 This spares us from having to use large relative paths for such imports:
 
 ```typescript
-import { Card } from '../../../common/wrappers';
+import { Card } from '../../../common/components';
 ```
