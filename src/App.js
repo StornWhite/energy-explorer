@@ -30,7 +30,7 @@ export const OldApp = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Hello World<br />
+          Hello to the World<br />
           You Must Obey Storn
         </a>
       </header>
