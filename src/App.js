@@ -5,6 +5,7 @@ import { useSelector, useDispatch} from 'react-redux';
 // Storn: need to create the components, routesm slices, models, pages below
 // Also, leaving out AlertSnackbar for now
 // import { AppContainer, ThemeProvider } from 'energy-explorer/components'
+import { ThemeProvider } from './common/components/ThemeProvider'
 // import { routes } from 'energy-explorer/routes';
 // import { slices } from 'energy-explorer/store';
 // import { models } from 'energy-explorer/util';
@@ -45,15 +46,16 @@ export const OldApp = () => {
  */
 export const AppRoutes = () => {
   return (
-    //<ThemeProvider>
-    <OldApp />
-    //</ThemeProvider>
+    <ThemeProvider>
+      <OldApp />
+    </ThemeProvider>
   );
 }
 
 
 /**
  * The applictation's root component, which is not rendered by tests.
+ * Note: Storn copied this also, without understanding it.
  */
 const App = () => (
   <Router>
