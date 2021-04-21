@@ -6,37 +6,11 @@ import { useSelector, useDispatch} from 'react-redux';
 // Also, leaving out AlertSnackbar for now
 // import { AppContainer, ThemeProvider } from 'energy-explorer/components'
 import { ThemeProvider } from './common/components/ThemeProvider'
-// import { routes } from 'energy-explorer/routes';
+import { routes } from './common/routes';
 // import { slices } from 'energy-explorer/store';
 // import { models } from 'energy-explorer/util';
-// import * as pages from './pages';
+import * as pages from './pages';
 
-// These are the old imports from the default react app
-import logo from './logo.svg';
-import './App.css';
-
-// This is the app that shipped with React
-export const OldApp = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Hello to the World<br />
-          You Must Obey Storn
-        </a>
-      </header>
-    </div>
-  );
-}
 
 /** ============================ Components ================================ */
 /**
@@ -47,11 +21,15 @@ export const OldApp = () => {
 export const AppRoutes = () => {
   return (
     <ThemeProvider>
-      <OldApp />
+      <Switch>
+        <UnauthenticatedRoute path={routes.login} component={pages.LoginPage} />
+        <UnauthenticatedRoute path={routes.resetPassword} component={pages.ResetPasswordPage} />
+        <UnauthenticatedRoute path={routes.registration.signup} component={pages.SignupPage} />
+        <UnauthenticatedRoute path={routes.registration.verify} component={pages.VerifyEmailPage} />
+      </Switch>
     </ThemeProvider>
   );
 }
-
 
 /**
  * The applictation's root component, which is not rendered by tests.
@@ -61,6 +39,16 @@ const App = () => (
   <Router>
     <AppRoutes />
   </Router>
+);
+
+/** ============================ Callbacks ================================= */
+const UnauthenticatedRoute = ({ component, ...rest }) => (
+  <Route
+    {...rest}
+    render={(props) =>  
+        React.createElement(component, props)
+    }
+  />
 );
 
 /** ============================ Exports =================================== */
