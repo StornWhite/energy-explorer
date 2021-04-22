@@ -1,3 +1,7 @@
+/**
+ * This store holds the entire application's state tree.
+ * We change state by calling store.dispatch(action)
+ */
 import { createStore } from 'redux'
 
 // For now this is just a minimal reducer, as a placeholder
@@ -8,9 +12,9 @@ function oeeRootReducer(state = {}, action) {
       return state
     default:
       return state
-  }
-}
+  };
+};
 
-const store = createStore(oeeRootReducer, {})
+const store = createStore(oeeRootReducer, {});
 
-export default store
+export default store;

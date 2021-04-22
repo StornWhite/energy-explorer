@@ -1,3 +1,6 @@
+/**
+ * Storn I think you can scrub this, it's some type script nonsense
+ */
 import * as React from 'react';
 import MuiThemeProvider from '@material-ui/styles/ThemeProvider';
 
