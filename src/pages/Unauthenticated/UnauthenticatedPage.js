@@ -1,3 +1,7 @@
+/**
+ * The parent page for the app's public-facing content.
+ */
+
 import * as React from 'react';
 //import classNames from 'classnames';
 
@@ -16,7 +20,7 @@ export const UnauthenticatedPage = ({ children }) => {
         <h2>
           Energy Explorer
         </h2>
-        <a>A logo would go here</a>
+        <p>A logo would go here</p>
         <div>{children}</div>
     </div>
   );

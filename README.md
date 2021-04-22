@@ -1,10 +1,47 @@
-# Getting Started with Create React App
+# Energy Explorer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A front end for interacting with the [Open Energy Engine](https://github.com/StornWhite/open-energy-engine).
 
-## Available Scripts
+## Setup
 
-In the project directory, you can run:
+Installing the application requires Node.js version 14. We strongly recommend using a Node version
+manager like [nvm](https://github.com/nvm-sh/nvm) or [n](https://github.com/tj/n) to install Node.js
+and npm. Instructions for doing so can be found [here](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#using-a-node-version-manager-to-install-nodejs-and-npm).
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/StornWhite/energy-explorer
+cd energy-explorer
+npm install
+```
+
+You can confirm if the installation worked successfully by running `npm start`. This will launch the
+WebPack server and serve the NavigaDER front end (by default on port 3000). If you encounter an
+error, please confirm that your Node version is correct and that there were no warnings/errors in
+the install process.
+
+## Deployment Script
+
+There is a deploy.sh script in the /scripts directory will automatically build the application and
+deploy it to Amazon Web Services.  Because the application is in pre-production, there is only one
+environment available on AWS.
+
+You will need the AWS CLI, which entails [installing](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)
+the CLI, and configuring the CLI with `aws configure` command, after obtaining appropriate AWS user credentials.
+
+Once set up with the CLI, you can deploy by calling the script:
+
+```bash
+./scripts/deploy.sh
+```
+
+The deployed application is available online at [http://energy-explorer.open-energy-engine.org](https://energy-explorer.open-energy-engine.org)
+
+## Other Scripts
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).  
+Create React App provides the following scripts from the project directory: In the project directory:
 
 ### `npm start`
 
@@ -26,45 +63,3 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

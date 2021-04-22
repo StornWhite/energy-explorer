@@ -16,16 +16,16 @@ import * as pages from './pages';
 /**
  * This is separated from the 'App' component so that we can provide a different router inside
  * tests.  This enables us to test that we transistion from page to page successfully.
- * Note: Storn copied this without understanding it.
+ * Note: Storn copied the above without understanding it.
  */
 export const AppRoutes = () => {
   return (
     <ThemeProvider>
       <Switch>
-        <UnauthenticatedRoute path={routes.login} component={pages.LoginPage} />
-        <UnauthenticatedRoute path={routes.resetPassword} component={pages.ResetPasswordPage} />
-        <UnauthenticatedRoute path={routes.registration.signup} component={pages.SignupPage} />
-        <UnauthenticatedRoute path={routes.registration.verify} component={pages.VerifyEmailPage} />
+        <Route path={routes.login} component={pages.LoginPage} />
+        <Route path={routes.resetPassword} component={pages.ResetPasswordPage} />
+        <Route path={routes.registration.signup} component={pages.SignupPage} />
+        <Route path={routes.registration.verify} component={pages.VerifyEmailPage} />
       </Switch>
     </ThemeProvider>
   );
@@ -39,16 +39,6 @@ const App = () => (
   <Router>
     <AppRoutes />
   </Router>
-);
-
-/** ============================ Callbacks ================================= */
-const UnauthenticatedRoute = ({ component, ...rest }) => (
-  <Route
-    {...rest}
-    render={(props) =>  
-        React.createElement(component, props)
-    }
-  />
 );
 
 /** ============================ Exports =================================== */
