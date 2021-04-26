@@ -3,25 +3,68 @@
  */
 
 import * as React from 'react';
-//import classNames from 'classnames';
+import classNames from 'classnames';
 
-// import { Branding, Card, Flex, Typography } from 'navigader/components';
-// import { makeStylesHook } from 'navigader/styles';
+import { Branding, Card, Flex, Typography } from '../../common/components';
+import { makeStylesHook } from '../../common/styles';
 
+/** ============================ Styles ==================================== */
+const LOGO_WIDTH = 300;
+const useStyles = makeStylesHook(
+  (theme) => ({
+    container: {
+      height: '100vh',
+    },
+    content: {
+      marginTop: theme.spacing(6),
+      maxWidth: LOGO_WIDTH,
+      width: LOGO_WIDTH,
+    },
+    gradient: {
+      width: '50%',
+    },
+    navigader: {
+      letterSpacing: 25,
+    },
+    rightSide: {
+      width: '50%',
+    },
+    rightSideCardContent: {
+      height: '100%',
+    },
+  }),
+  'UnauthenticatedPage'
+);
 
 /** ============================ Components ================================ */
 export const UnauthenticatedPage = ({ children }) => {
-  // const classes = useStyles();
-  //const gradientClasses = classNames(classes.gradient, Branding.useGradientStyles().root);
+  const classes = useStyles();
+  const gradientClasses = classNames(classes.gradient, Branding.useGradientStyles().root);
 
   return (
-    <div >
+    <Flex.Container alignItems="stretch" className={classes.container}>
+      <Flex.Container
+        alignItems="center"
+        className={gradientClasses}
+        direction="column"
+        justifyContent="center"
+      >
+        <Typography variant="h2" className={classes.navigader}>
+          ENERGY EXPLORER
+        </Typography>
+      </Flex.Container>
 
-        <h2>
-          Energy Explorer
-        </h2>
-        <p>A logo would go here</p>
-        <div>{children}</div>
-    </div>
+      <Card className={classes.rightSide} raised>
+        <Flex.Container
+          alignItems="center"
+          className={classes.rightSideCardContent}
+          direction="column"
+          justifyContent="center"
+        >
+          <Branding.Logo width={LOGO_WIDTH} />
+          <div className={classes.content}>{children}</div>
+        </Flex.Container>
+      </Card>
+    </Flex.Container>
   );
 };
