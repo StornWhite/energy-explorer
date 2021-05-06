@@ -1,6 +1,6 @@
 import * as React from 'react';
 // import { BrowserRouter as Router, Switch, Redirect, Route, RouteProps } from 'react-router-dom';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 // import { useSelector, useDispatch} from 'react-redux';
 
 // import { AppContainer, ThemeProvider } from 'energy-explorer/components'
@@ -23,6 +23,9 @@ export const AppRoutes = () => {
         <Route path={routes.resetPassword} component={pages.ResetPasswordPage} />
         <Route path={routes.registration.signup} component={pages.SignupPage} />
         <Route path={routes.registration.verify} component={pages.VerifyEmailPage} />
+        <Route path={routes.dashboard.base} component={pages.DashboardPage} />
+        {/** Route of last resort */}
+        <Redirect to={routes.dashboard.base} />
       </Switch>
     </ThemeProvider>
   );
