@@ -5,16 +5,23 @@
  import * as React from 'react';
  import { useHistory } from 'react-router-dom';
 
-/** ============================ Routes ==================================== */
+/** ============================ Authentication Routes ===================== */
 const login = '/login';
 const resetPassword = '/reset_password';
 const registration = {
     signup: '/registration/signup',
     verify: '/registration/verify',
-  };
+};
+
+/** ============================ Dashboard Routes ========================== */
+const dashboardBase = '/dashboard';
+const dashboard = {
+  base: dashboardBase
+};
 
 /** ============================ Routes Object ============================= */
 export const routes = {
+  dashboard,
   login,
   resetPassword,
   registration
@@ -34,6 +41,10 @@ export const routes = {
      const routerFn = useHistory()[method];
      return React.useMemo(
        () => ({
+
+        dashboard: {
+          base: () => routerFn(routes.dashboard.base)
+        },
  
          login: () => routerFn(routes.login),
  
