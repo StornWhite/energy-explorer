@@ -1,13 +1,14 @@
+import { ViewModuleSharp } from '@material-ui/icons';
 import * as React from 'react';
 // import { BrowserRouter as Router, Switch, Redirect, Route, RouteProps } from 'react-router-dom';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 // import { useSelector, useDispatch} from 'react-redux';
 
-// import { AppContainer, ThemeProvider } from 'energy-explorer/components'
-import ThemeProvider from './common/components/ThemeProvider';
+// import { AppContainer, ThemeProvider } from './common/components';
+import { ThemeProvider } from './common/components';
 import { routes } from './common/routes';
 // import { slices } from 'energy-explorer/store';
-// import { models } from 'energy-explorer/util';
+import { models } from './common/util';
 import * as pages from './pages';
 
 /** ============================ Components ================================ */
@@ -19,13 +20,20 @@ export const AppRoutes = () => {
   return (
     <ThemeProvider>
       <Switch>
-        <Route path={routes.login} component={pages.LoginPage} />
-        <Route path={routes.resetPassword} component={pages.ResetPasswordPage} />
-        <Route path={routes.registration.signup} component={pages.SignupPage} />
-        <Route path={routes.registration.verify} component={pages.VerifyEmailPage} />
-        <Route path={routes.dashboard.base} component={pages.DashboardPage} />
-        {/** Route of last resort */}
-        <Redirect to={routes.dashboard.base} />
+        <UnauthenticatedRoute path={routes.login} component={pages.LoginPage} />
+        <UnauthenticatedRoute path={routes.resetPassword} component={pages.ResetPasswordPage} />
+        <UnauthenticatedRoute path={routes.registration.signup} component={pages.SignupPage} />
+        <UnauthenticatedRoute path={routes.registration.verify} component={pages.VerifyEmailPage} />
+
+        <RequireAuth>
+          {/** AppContainer goes here! */}
+            <Switch>
+              <Route path={routes.dashboard.base} component={pages.DashboardPage}/>
+              {/** Route of last resort */}
+              <Redirect to={routes.dashboard.base} />
+            </Switch>
+
+        </RequireAuth>
       </Switch>
     </ThemeProvider>
   );
@@ -40,6 +48,23 @@ const App = () => (
     <AppRoutes />
   </Router>
 );
+
+/** ============================ Callbacks ================================= */
+const UnauthenticatedRoute = ({ component, ...rest }) => (
+  <Route
+    {...rest}
+    render={(props) =>
+      models.user.isAuthenticated() ? (
+        <Redirect to={{ pathname: routes.dashboard.base, state: { from: props.location } }} />
+      ) : (
+        React.createElement(component, props)
+      )
+    }
+  />
+);
+
+const RequireAuth = ({ children }) =>
+    models.user.isAuthenticated() ? children : <Redirect to={routes.login} />;
 
 /** ============================ Exports =================================== */
 export default App;
