@@ -8,8 +8,7 @@ import MuiThemeProvider from '@material-ui/styles/ThemeProvider';
 import { theme } from '../styles/theme';
 
 /** ============================ Components ================================ */
-const ThemeProvider = (props) => (
+export const ThemeProvider = (props) => (
   <MuiThemeProvider theme={theme}>{props.children}</MuiThemeProvider>
 );
 
-export default ThemeProvider;

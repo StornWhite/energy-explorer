@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-//import * as api from 'navigader/api';
+import * as api from '../../common/api';
 import { Button, Link, TextField } from '../../common/components';
 import { routes, usePushRouter } from '../../common/routes';
 import { makeStylesHook } from '../../common/styles';
@@ -38,7 +38,7 @@ export const LoginPage = () => {
 
   return (
     <UnauthenticatedPage>
-      <form>
+      <form onSubmit={onSubmit}>
         <TextField
           className={classes.loginField}
           error={error}
@@ -78,4 +78,34 @@ export const LoginPage = () => {
     </UnauthenticatedPage>
   );
 
+  /** ========================== Callbacks ================================= */
+  /**
+   * Handles form submission, showing errors if the login is unsuccessful.
+   *
+   * @param event: FormEvent
+   *   The event object
+   */
+   async function onSubmit(event) {
+    setError(false);
+    event.preventDefault();
+
+    try {
+      const { response, error } = await api.login(email, password);
+
+      if (response.ok) {
+        // Redirect to the dashboard if login was successful
+        routeTo.dashboard.base();
+      } else if (error === 'E-mail is not verified.') {
+        // If the message is about email verification, redirect to the verification page
+        routeTo.registration.verify();
+      } else {
+        // Storn switch this to true once you are handling errors
+        setError(false);
+      }
+    } catch (e) {
+      // Storn switch this to true once you are handling errors
+      setError(false);
+      return;
+    }
+  }
 };

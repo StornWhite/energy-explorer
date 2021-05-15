@@ -9,4 +9,5 @@ export * from './Card';
 export * from './Link';
 export * from './Paper';
 export * from './TextField';
+export * from './ThemeProvider';
 export * from './Typography';
