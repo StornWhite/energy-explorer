@@ -1,7 +1,8 @@
 import _ from 'lodash';
 
 // import { QueryParams } from 'navigader/types';
-import { appendQueryString, getRequestHeaders } from '../../util';
+// import { appendQueryString, getRequestHeaders } from '../../util';
+import { getRequestHeaders } from '../../util';
 
 /** ============================ API Methods =============================== */
 /**

@@ -17,7 +17,12 @@ export async function login(email, password) {
   };
 }
 
+export async function logout() {
+  return await postRequest(routes.logout);
+}
+
 /** ============================ Helpers =================================== */
 const routes = {
   login: apiRoute.restAuth('login/'),
+  logout: apiRoute.restAuth('logout/'),
 };

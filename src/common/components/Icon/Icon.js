@@ -15,12 +15,13 @@ import LaunchIcon from '@material-ui/icons/Launch';
 import MenuIcon from '@material-ui/icons/Menu';
 import MoreVert from '@material-ui/icons/MoreVert';
 import Schedule from '@material-ui/icons/Schedule';
-import SvgIcon from '@material-ui/core/SvgIcon';
+//import SvgIcon from '@material-ui/core/SvgIcon';
 import SystemUpdateAltIcon from '@material-ui/icons/SystemUpdateAlt';
 import UploadIcon from '@material-ui/icons/CloudUpload';
 import WbSunny from '@material-ui/icons/WbSunny';
 
-import { MaterialColor, materialColors } from '../../styles';
+//import { MaterialColor, materialColors } from '../../styles';
+import { materialColors } from '../../styles';
 import FlameIcon from './FlameIcon';
 import FuelSwitchingIcon from './FuelSwitchingIcon';
 

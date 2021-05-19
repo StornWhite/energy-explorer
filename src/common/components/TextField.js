@@ -2,14 +2,14 @@ import classNames from 'classnames';
 import _ from 'lodash';
 import * as React from 'react';
 import MuiInputAdornment from '@material-ui/core/InputAdornment';
-import MuiTextField, { TextFieldProps as MuiTextFieldProps } from '@material-ui/core/TextField';
-import { PagesSharp } from '@material-ui/icons';
+import MuiTextField from '@material-ui/core/TextField';
+// import { PagesSharp } from '@material-ui/icons';
 
 import { makeStylesHook } from '../styles';
 //import { Tuple } from 'navigader/types';
 //import { hooks, printWarning } from 'navigader/util';
 import { hooks } from '../util';
-import { Paper, PaperProps } from './Paper';
+import { Paper } from './Paper';
 
 /** ============================ Styles ==================================== */
 const useStyles = makeStylesHook(
