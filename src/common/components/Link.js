@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import MuiLink, { LinkProps as MuiLinkProps } from '@material-ui/core/Link';
+import MuiLink from '@material-ui/core/Link';
 
-import { getColor, TypographyProps } from './Typography';
+import { getColor } from './Typography';
 
 /** ============================ Components ================================ */
 const SourceList = ({ sources, ...rest }) => {

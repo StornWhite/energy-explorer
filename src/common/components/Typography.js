@@ -1,5 +1,5 @@
 import * as React from 'react';
-import MuiTypography, { TypographyProps as MuiTypographyProps } from '@material-ui/core/Typography';
+import MuiTypography from '@material-ui/core/Typography';
 import classNames from 'classnames';
 
 import { makeStylesHook } from '../styles';

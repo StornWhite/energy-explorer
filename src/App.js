@@ -1,11 +1,10 @@
-import { ViewModuleSharp } from '@material-ui/icons';
+// import { ViewModuleSharp } from '@material-ui/icons';
 import * as React from 'react';
 // import { BrowserRouter as Router, Switch, Redirect, Route, RouteProps } from 'react-router-dom';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 // import { useSelector, useDispatch} from 'react-redux';
 
-// import { AppContainer, ThemeProvider } from './common/components';
-import { ThemeProvider } from './common/components';
+import { AppContainer, ThemeProvider } from './common/components';
 import { routes } from './common/routes';
 // import { slices } from 'energy-explorer/store';
 import { models } from './common/util';
@@ -26,13 +25,13 @@ export const AppRoutes = () => {
         <UnauthenticatedRoute path={routes.registration.verify} component={pages.VerifyEmailPage} />
 
         <RequireAuth>
-          {/** AppContainer goes here! */}
+          <AppContainer>
             <Switch>
               <Route path={routes.dashboard.base} component={pages.DashboardPage}/>
               {/** Route of last resort */}
               <Redirect to={routes.dashboard.base} />
             </Switch>
-
+          </AppContainer>
         </RequireAuth>
       </Switch>
     </ThemeProvider>
