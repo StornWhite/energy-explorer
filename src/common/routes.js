@@ -19,12 +19,30 @@ const dashboard = {
   base: dashboardBase
 };
 
+/** ============================ App1 Routes =============================== */
+const app_1_Base = '/app_1';
+const app_1 = {
+  base: app_1_Base,
+  feature_1: `${app_1_Base}/feature_1`,
+  feature_2: (id) => `${app_1_Base}/${id}`,
+};
+
+/** ============================ App2 Routes =============================== */
+const app_2_Base = '/app_2';
+const app_2 = {
+  base: app_2_Base,
+  feature_1: `${app_2_Base}/feature_1`,
+  feature_2: (id) => `${app_2_Base}/${id}`,
+};
+
 /** ============================ Routes Object ============================= */
 export const routes = {
-  dashboard,
   login,
   resetPassword,
-  registration
+  registration,
+  dashboard,
+  app_1,
+  app_2
 };
 
 /** ============================ Hook ====================================== */
@@ -48,10 +66,20 @@ export const routes = {
  
          login: () => routerFn(routes.login),
  
-         registration: {
-           signup: () => routerFn(routes.registration.signup),
-           verify: () => routerFn(routes.registration.verify),
-         },
+        registration: {
+          signup: () => routerFn(routes.registration.signup),
+          verify: () => routerFn(routes.registration.verify),
+        },
+
+        app_1: {
+        base: () => routerFn(routes.app_1.base),
+        feature_1: () => routerFn(routes.app_1.feature_1),
+        },
+
+        app_2: {
+          base: () => routerFn(routes.app_1.base),
+          feature_2: () => routerFn(routes.app_1.feature_2),
+        },
  
          // Special route, allowing components to link to a page using the route string. This should be
          // used as an option of last resort.

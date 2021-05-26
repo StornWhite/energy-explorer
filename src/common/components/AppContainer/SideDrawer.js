@@ -8,6 +8,7 @@ import { Button } from '../Button';
 import { Centered } from '../Centered';
 import * as Flex from '../Flex';
 import { DRAWER_WIDTH } from './common';
+// import { RadioButtonCheckedSharp } from '@material-ui/icons';
 
 /** ============================ Styles ==================================== */
 const useDrawerStyles = makeStylesHook(
@@ -95,10 +96,8 @@ export const SideDrawer = ({ open, closeDrawer }) => {
       <Flex.Container alignItems="stretch" className={classes.flexContainer} direction="column">
         <Flex.Item grow>
           <DrawerButton linkTo={routes.dashboard.base}>Dashboard</DrawerButton>
-          <DrawerButton linkTo={routes.dashboard.base}>Someplace</DrawerButton>
-          <DrawerButton linkTo={routes.dashboard.base}>Anotherplace</DrawerButton>
-          <DrawerButton linkTo={routes.dashboard.base}>A Place</DrawerButton>
-          <DrawerButton linkTo={routes.dashboard.base}>Yet Another Place</DrawerButton>
+          <DrawerButton linkTo={routes.app_1.base}>An App</DrawerButton>
+          <DrawerButton linkTo={routes.app_2.base}>Another App</DrawerButton>
         </Flex.Item>
       </Flex.Container>
     </Drawer>
