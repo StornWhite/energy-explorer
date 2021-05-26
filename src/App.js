@@ -27,7 +27,12 @@ export const AppRoutes = () => {
         <RequireAuth>
           <AppContainer>
             <Switch>
+              {/** Order matters here - base routes will match their sub-routes. */}
               <Route path={routes.dashboard.base} component={pages.DashboardPage}/>
+              <Route path={routes.app_1.feature_1} component={pages.App_1_Feature_1}/>
+              <Route path={routes.app_1.base} component={pages.App_1_Base}/>
+              <Route path={routes.app_2.feature_1} component={pages.App_2_Feature_1}/>
+              <Route path={routes.app_2.base} component={pages.App_2_Base}/>
               {/** Route of last resort */}
               <Redirect to={routes.dashboard.base} />
             </Switch>
