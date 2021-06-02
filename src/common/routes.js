@@ -64,7 +64,7 @@ export const routes = {
           base: () => routerFn(routes.dashboard.base)
         },
  
-         login: () => routerFn(routes.login),
+        login: () => routerFn(routes.login),
  
         registration: {
           signup: () => routerFn(routes.registration.signup),
